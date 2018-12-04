@@ -329,9 +329,10 @@
             tag.text(Sitecore.PageModes.Texts.Usage + " " + this.renderings[this.chrome._originalDOMElement.context.id]);
         }
         else {
+            var count;
             experienceEditor.PipelinesUtil.generateRequestProcessor("ExperienceEditor.Datasources.GetDatasourceUsagesCount", function (response) {
                 var result = response.responseValue.value;
-                var count = result ? result.length : 1;
+                count = result ? result.length : 1;
                 tag.text(Sitecore.PageModes.Texts.Usage + " " + count);
                 self.setLoadingAnimation(tag, false);
                 container.attr("title", Sitecore.PageModes.Texts.TheNumberOfWebpagesIncludingThisOneWhereThisAssociatedContentIsUsed.replace("{0}", count));
